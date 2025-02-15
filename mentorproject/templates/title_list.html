@@ -1,0 +1,5 @@
+{% load static %}
+{% for title in data %}
+<button class="js-modal-trigger button is-large is-fullwidth" data-target="question_box" id="title">{{ title.name }}</button>
+
+{% endfor %}

@@ -1,0 +1,84 @@
+.zen-old-mincho-regular {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+body { 
+    font-family: "Zen Old Mincho", serif;
+}
+
+.footer-button {
+    gap: 3vh;
+    justify-content: center;
+    padding: 20px 0px 10px 0;
+    align-items: flex-start;
+    display: flex;
+    background-color: #1d1e22;
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+}
+img#controlimg{
+    height: 20px;
+    width: 20px;
+}
+img#controlback{
+    height: 20px;
+    width: 20px;
+    
+}
+img#correct{
+    height: 20px;
+}
+img#wrong{
+    height: 20px;
+}
+p.control {
+    width: auto;
+}
+.modal-card-body {
+    height: 60vh;
+}
+.button#back{
+    width: auto;
+}
+div.answerdisplay{
+    display: flex;
+    justify-content: space-between;
+    height: 7vh;
+}
+div#correct{
+    display: flex;
+    align-items: center;
+}
+div#wrong{
+    display: flex;
+    align-items: center;
+}
+progress#progress.progress.is-link {
+    height: 1px;
+}
+p#backp{
+    font-size: 14px;
+}
+p#answeris{
+    font-size: xx-large;
+}
+div#question_number{
+    display: flex;
+}
+div#question_section{
+    height: 41vh;
+}
+div#back{
+    display: flex;
+    align-items: flex-start;
+}
+div#imgesfield{
+    display: flex;
+    justify-content: center;
+}
+img#imgesfield{
+    max-height: 100px;
+}

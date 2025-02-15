@@ -1,0 +1,56 @@
+{% load static %}
+<div class="modal" id="question_box">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title" id="modal-title"></p>
+            <button class="delete" aria-label="close" onclick="location.reload()"></button>
+        </header>
+        <section class="modal-card-body">
+
+            <progress class="progress is-link" id="progress" value="45" max="100"></progress>
+            <div class="answerdisplay">
+                <div id="correct">
+                    <p id="correct">あなたの答え</p>
+                    <img id="correct" src="{% static 'images/correct.png' %}" alt="正解">
+                </div>
+                <div id="wrong">
+                    <p id="wrong">あなたの答え</p>
+                    <img id="wrong" src="{% static 'images/wrong.png' %}" alt="不正解">
+                </div>
+                <p id="answeris"></p>
+
+            </div>
+            <div id="question_section">
+                <div id="imgesfield">
+                    <img id="imgesfield" src="">
+                </div>
+                <div id="question_number">
+                    <p>問</p>
+                    <p id="count"></p>
+                </div>
+                <p id="questionsfiled"></p>
+            </div>
+            <div id="back">
+                <button id="back"><img id="controlback" src="{% static 'images/back.png' %}" alt="戻る"></button>
+                <p id="backp">戻る</p>
+            </div>
+        </section>
+        <footer class="footer-button" id="fbutton">
+            <p class="control">
+                <button class="button" id="next"><img id="controlimg" src="{% static 'images/next.png' %}"
+                        alt="不正解"></button>
+            </p>
+            <p class="control">
+                <button class="button is-link" id="yes" onclick="check('o')"><img id="controlimg"
+                        src="{% static 'images/correct.png' %}" alt="スキップ"></button>
+            </p>
+            <p class="control">
+                <button class="button is-danger" id="no" onclick="check('x')"><img id="controlimg"
+                        src="{% static 'images/wrong.png' %}" alt="スキップ"></button>
+            </p>
+        </footer>
+    </div>
+
+</div>
+</div>
