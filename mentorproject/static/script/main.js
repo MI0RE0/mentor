@@ -46,8 +46,7 @@ const progressElement = document.getElementById('progress');
 let lenght = 0;
 let count = 0;
 let ans = '';
-
-
+let descriptions = '';
 //リストボタンが押されたとき
 //最初はlistidが二個目以降のタイトルを取得できないためquerySelectorでclassを特定してからtitleを取得
 document.querySelectorAll('.js-modal-trigger.button.is-large.is-fullwidth').forEach(button => {
@@ -62,7 +61,8 @@ document.querySelectorAll('.js-modal-trigger.button.is-large.is-fullwidth').forE
         document.getElementById('wrong').style.display = 'none';
         document.getElementById('yes').style.display = '';
         document.getElementById('no').style.display = '';
-
+        document.getElementById('description').style.display ='none';
+        document.getElementById('descriptionsfield').textContent ='';
 
         fetch('/main/question_box/', {
             method: 'POST',
@@ -80,6 +80,7 @@ document.querySelectorAll('.js-modal-trigger.button.is-large.is-fullwidth').forE
                     document.getElementById('count').textContent = count;
                     console.log(data.answers);
                     ans = data.answers;
+                    descriptions = data.descriptions;
                     let progress = document.getElementById('progress');
                     progress.value = count;
                     progress.max = data.lenght;
@@ -102,6 +103,8 @@ document.getElementById('next').addEventListener('click', function (event) {
     document.getElementById('answeris').style.display = 'none';
     document.getElementById('correct').style.display = 'none';
     document.getElementById('wrong').style.display = 'none';
+    document.getElementById('description').style.display ='none';
+    document.getElementById('descriptionsfield').textContent ='';
     count++;
     fetch('/main/question_box/', {
         method: 'POST',
@@ -126,6 +129,7 @@ document.getElementById('next').addEventListener('click', function (event) {
                 document.getElementById('count').textContent = count
                 document.getElementById('progress').value = count;
                 ans = data.answers;
+                descriptions = data.descriptions;
                 progress = document.getElementById('progress');
                 progress.value = count
                 progress.max = data.lenght
@@ -144,6 +148,8 @@ document.getElementById('back').addEventListener('click', function (event) {
     document.getElementById('correct').style.display = 'none';
     document.getElementById('wrong').style.display = 'none';
     document.getElementById('answeris').style.display = 'none';
+    document.getElementById('description').style.display = 'none';
+    document.getElementById('descriptionsfield').textContent ='';
     count--;
     if (count <= 1) {
         document.getElementById('back').style.display = 'none';
@@ -166,6 +172,7 @@ document.getElementById('back').addEventListener('click', function (event) {
                 document.getElementById('count').textContent = count
                 progress = document.getElementById('progress');
                 ans = data.answers;
+                descriptions = data.descriptions;
                 progress.value = count
                 progress.max = data.lenght
 
@@ -193,12 +200,15 @@ function check(ansvalue) {
     } else {
         document.getElementById('wrong').style.display = '';
     }
+    document.getElementById('description').style.display ='';
 
     if (ans === ansvalue) {
+        document.getElementById('descriptionsfield').textContent = descriptions;
         document.getElementById('answeris').style.display = '';
         document.getElementById('answeris').textContent = '正解'
         document.getElementById('answeris').style.color = 'green';
     } else {
+        document.getElementById('descriptionsfield').textContent = descriptions;
         document.getElementById('answeris').style.display = '';
         document.getElementById('answeris').textContent = '不正解'
         document.getElementById('answeris').style.color = '#ca1313';

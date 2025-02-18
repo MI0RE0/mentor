@@ -38,7 +38,7 @@ p.control {
     width: auto;
 }
 .modal-card-body {
-    height: 60vh;
+    height: 70vh;
 }
 .button#back{
     width: auto;
@@ -64,13 +64,13 @@ p#backp{
 }
 p#answeris{
     font-size: xx-large;
+    display: flex;
+    align-items: center;
 }
 div#question_number{
     display: flex;
 }
-div#question_section{
-    height: 41vh;
-}
+
 div#back{
     display: flex;
     align-items: flex-start;
@@ -81,4 +81,27 @@ div#imgesfield{
 }
 img#imgesfield{
     max-height: 100px;
+}
+.centered-text{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: xx-small;
+    color: #646566;
+}
+p#descriptionsfield{
+    display: flex;
+    justify-content: center;
+}
+span.line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #2e333d;
+    min-width: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 20px 10px;
+}
+#text{
+    font-size: small;
 }
