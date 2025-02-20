@@ -2,11 +2,46 @@
     font-family: "Zen Old Mincho", serif;
     font-weight: 400;
     font-style: normal;
-  }
-  
+}
 
-body { 
+
+body {
     font-family: "Zen Old Mincho", serif;
+}
+
+.title-box-list {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 2%;
+}
+
+.box-controll {
+    display: flex;
+    height: 20vh;
+    width: 47%;
+    position: relative;
+}
+.box-items{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 0;
+}
+.js-modal-trigger.box {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    padding: 10px;
+
+}
+
+.box-controll p {
+    font-size: xx-small;
+    position: absolute;
+    top: 40%;
+    left: 10px;
 }
 
 .footer-button {
@@ -19,80 +54,100 @@ body {
     border-bottom-left-radius: 11px;
     border-bottom-right-radius: 11px;
 }
-img#controlimg{
+
+img#controlimg {
     height: 20px;
     width: 20px;
 }
-img#controlback{
+
+img#controlback {
     height: 20px;
     width: 20px;
-    
+
 }
-img#correct{
+
+img#correct {
     height: 20px;
 }
-img#wrong{
+
+img#wrong {
     height: 20px;
 }
+
 p.control {
     width: auto;
 }
+
 .modal-card-body {
     height: 70vh;
 }
-.button#back{
+
+.button#back {
     width: auto;
 }
-div.answerdisplay{
+
+div.answerdisplay {
     display: flex;
     justify-content: space-between;
     height: 7vh;
 }
-div#correct{
+
+div#correct {
     display: flex;
     align-items: center;
 }
-div#wrong{
+
+div#wrong {
     display: flex;
     align-items: center;
 }
+
 progress#progress.progress.is-link {
     height: 1px;
 }
-p#backp{
+
+p#backp {
     font-size: 14px;
 }
-p#answeris{
+
+p#answeris {
     font-size: xx-large;
     display: flex;
     align-items: center;
 }
-div#question_number{
+
+div#question_number {
     display: flex;
 }
 
-div#back{
+div#back {
     display: flex;
     align-items: flex-start;
 }
-div#imgesfield{
+
+div#imgesfield {
     display: flex;
     justify-content: center;
+    background-color: #ffffff;
 }
-img#imgesfield{
+
+img#imgesfield {
     max-height: 100px;
 }
-.centered-text{
+
+.centered-text {
     display: flex;
     align-items: center;
     text-align: center;
     font-size: xx-small;
     color: #646566;
 }
-p#descriptionsfield{
+
+p#descriptionsfield {
     display: flex;
     justify-content: center;
 }
+
 span.line {
     flex-grow: 1;
     height: 1px;
@@ -102,6 +157,7 @@ span.line {
     vertical-align: middle;
     margin: 20px 10px;
 }
-#text{
+
+#text {
     font-size: small;
 }

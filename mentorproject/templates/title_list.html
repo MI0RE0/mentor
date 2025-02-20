@@ -1,5 +1,11 @@
 {% load static %}
-{% for title in data %}
-<button class="js-modal-trigger button is-large is-fullwidth" data-target="question_box" id="title">{{ title.name }}</button>
-
-{% endfor %}
+<div class="title-box-list">
+    <div class="box-controll">
+        <button class="js-modal-trigger box" data-target="question_box" id="title" onclick="set_total_count(10)">本免許問題集</button>
+        <p>ランダム10問</p>
+    </div>
+    <div class="box-controll">
+        <button class="js-modal-trigger box" data-target="question_box" id="title" onclick="set_total_count(10)">本免許問題集</button>
+        <p>本番</p>
+    </div>
+</div>

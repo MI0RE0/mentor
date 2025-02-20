@@ -22,25 +22,46 @@ def question_box(request):
             body = json.loads(request.body.decode('utf-8'))
             title_name = body.get('thistitle')
             print(title_name)
-            
-            count = body.get('count')
-            number_list =list(Questions.objects.filter(title__name = title_name).values_list('number',flat=True))
-            random_number = random.choice(number_list)
+            #タイトルエラー
             if not title_name:
                 return JsonResponse({'error': 'タイトル名が違う'}, status=400)
-            question_count = Questions.objects.filter(title__name=title_name).count()
             
+            #[]初期化
+            if 'used_numbers' not in  request.session:
+                request.session['used_numbers'] = []
+                
+            #sessionから使用済みに数字を収得して同じ番号の出力を防止
+            number_list = list(Questions.objects.filter(title__name=title_name).values_list('number', flat=True))
+            max_num = max(number_list)
+            all_numbers = set(range(1,max_num + 1))
+            used_numbers = set(request.session['used_numbers'])
+            available_num = all_numbers - used_numbers
             
-            if count == question_count:
+            #available_numが0になったら初期化
+            if not available_num:
+                request.session['used_numbers'] = []
+                return JsonResponse({'end': 'end'})
+                
+            #使用済みの数字をsessionに保存
+            num = random.choice(list(available_num))
+            request.session['used_numbers'].append(num)
+            request.session.modified = True
+            
+            #カウント制限
+            count = body.get('count')
+            total_counts = body.get('total_counts')
+            print(total_counts)
+            if count > total_counts:
                 return JsonResponse({'end':'end'})
                 
             
             #title = Title.objects.get(name=title_name) 
             #questions = Questions.objects.filter(number = count).values('questions', 'answers', 'number').first()
-            questions = Questions.objects.select_related('title').filter(title__name=title_name, number=random_number).values('questions', 'answers', 'number','descriptions').first()
+            questions = Questions.objects.select_related('title').filter(title__name=title_name, number=num).values('questions', 'answers', 'number','descriptions','images_path').first()
             
-            
-            return JsonResponse({'name': title_name, 'questions':questions['questions'], 'answers':questions['answers'],'lenght':question_count,'descriptions':questions['descriptions']})
+            print(questions['images_path'])
+            return JsonResponse({'name': title_name, 'questions':questions['questions'], 'answers':questions['answers'],'descriptions':questions['descriptions'],'images_path':questions['images_path']})
+    
         except Title.DoesNotExist:
             return JsonResponse({'error': 'このタイトルのデータはありません'}, status=404)
         except json.JSONDecodeError:
