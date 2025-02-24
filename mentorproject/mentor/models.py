@@ -8,5 +8,4 @@ class Questions(models.Model):
     questions = models.CharField(max_length=250)
     answers = models.CharField(max_length=1)
     images_path = models.CharField(max_length=100, null=True)
-    number = models.IntegerField()
     descriptions = models.CharField(max_length=250,null=True)

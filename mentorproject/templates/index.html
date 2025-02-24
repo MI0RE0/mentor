@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor</title>
     <link href="https://cdn.jsdelivr.net/npm/bulma@1.0.3/css/bulma.min.css" rel="stylesheet">
-    <title>mentor</title>
+    <link href="{% static 'style/main.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <h1>hello</h1>
     <button class="button is-primary is-dark" ><a href="{% url 'main' %}">始める</a></button>
+    <button class="js-modal-trigger box" data-target="question_box" id="title" onclick="set_total_count(10)">本免許問題集</button>
+    {% include 'question_box.html' %}
+    <script src="{% static 'script/main.js' %}"></script>
 </body>
 </html>

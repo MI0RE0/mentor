@@ -131,8 +131,9 @@ div#imgesfield {
     background-color: #ffffff;
 }
 
-img#imgesfield {
-    max-height: 100px;
+img#imgesfield-img{
+    max-height: 70px;
+    width: 100px;
 }
 
 .centered-text {
