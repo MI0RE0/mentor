@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
-    {% load static %}
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,57 @@
     <link href="{% static 'style/main.css' %}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>hello</h1>
-    <button class="button is-primary is-dark" ><a href="{% url 'main' %}">始める</a></button>
-    <button class="js-modal-trigger box" data-target="question_box" id="title" onclick="set_total_count(10)">本免許問題集</button>
-    {% include 'question_box.html' %}
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="運転免許アプリ - 短時間で取得" />
+            </div>
+            <h1>SpeedyTest</h1>
+        </div>
+    </header>
+    <button class="js-modal-trigger button is-warning " data-target="question_box" id="title"
+        onclick="set_total_count(10)">始める</button>
+    <main class="main">
+        {% include 'question_box.html' %}
+        <div class="adbox-banner">asd</div>
+        <h1>日常の隙間時間を最大限に活用できる運転免許アプリ。<br>移動中でも手軽に学習し、<br><strong>自信を持って運転免許を取得しよう。</strong></h1>
+        <button class="js-modal-trigger button is-success is-outlined is-dark" data-target="question_box" id="title"onclick="set_total_count(10)">テストを開始する ...</button>
+        <p class="centered-text" id="description">
+            <span class="line"></span>広告<br>
+            <span class="line"></span>
+        </p>
+        <div class="adbox">
+    
+        </div>
+        <div class="features-box">
+            <section class="hero is-small is-success">
+                <div class="hero-body">
+                  <p class="title">メントルの特徴</p>
+                </div>
+              </section>
+            <div class="features">
+                <strong>高速＆シンプル設計で快適な学習体験</strong>
+                <h4>軽量設計により瞬時に読み込み、ストレスなく学習をスタートできます。直感的なインターフェースで操作に迷うことなく、必要な知識を効率的に習得できます。余分な装飾や複雑な機能を省いたシンプルな設計により、スキマ時間を最大限に活用した試験対策が可能です。忙しい毎日でも、手軽に効率良く学習を進められます。</h4>
+            </div>
+            <div class="features">
+                <strong>広告少なめで集中力アップ！効率的な試験対策</strong>
+                <h4>集中力を妨げる広告を最小限に抑え、試験対策に専念できる環境を提供します。出題頻度の高い問題を厳選し、限られた時間でも効率的な学習が可能です。シンプルな操作で問題を次々と解き進められるため、短時間でも充実した学習効果が得られます。無駄な情報に惑わされることなく、合格に直結する実践的な学習ができます。</h4>
+            </div>
+            <div class="features">
+                <strong>登録不要＆完全無料！いつでもどこでも学習可能</strong>
+                <h4>面倒な登録手続きは一切なし！アプリを開くだけですぐに学習を始められます。完全無料で提供しているため、経済的な負担なく試験対策に取り組めます。スマホさえあれば、通勤・通学中や待ち時間などを有効活用して学習できるので、忙しい方でも着実に知識を積み重ねられます。シンプル設計のため、デジタル機器の操作に自信がない方でも直感的に使いこなせます。</h4>
+            </div>
+            
+        </div>
+    </main>
+
+
+
     <script src="{% static 'script/main.js' %}"></script>
 </body>
+
 </html>

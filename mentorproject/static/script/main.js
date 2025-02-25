@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let ans = '';
     let descriptions = '';
     let total_counts = '';
+    let title ='始める';
     const progressElement = document.getElementById('progress');
 
     // 問題出力回数を設定
@@ -89,9 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // クイズボックスにクリックイベントを設定
-    document.querySelectorAll('.js-modal-trigger.box').forEach(button => {
+    document.querySelectorAll('.js-modal-trigger.button').forEach(button => {
         button.addEventListener('click', function() {
-            const title = this.textContent;
+            //title = this.textContent;
             console.log(title);
             
             count++;
@@ -137,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // UI要素を更新
                 document.getElementById('questionsfiled').textContent = data.questions;
-                document.getElementById('modal-title').textContent = data.name;
+                //document.getElementById('modal-title').textContent = data.name;
                 
                 if (data.images_path) {
                     document.getElementById('imgesfield').src = data.images_path;
@@ -156,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 次の問題ボタンのイベントリスナー
     document.getElementById('next').addEventListener('click', function() {
-        const title = document.getElementById('modal-title').textContent.trim();
+        //const title = document.getElementById('modal-title').textContent.trim();
         
         count++;
         document.getElementById('fbutton').style.gap = '';
@@ -191,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 console.log(data);
                 document.getElementById('questionsfiled').textContent = data.questions;
-                document.getElementById('modal-title').textContent = data.name;
+                //document.getElementById('modal-title').textContent = data.name;
                 document.getElementById('count').textContent = count;
                 document.getElementById('progress').value = count;
                 ans = data.answers;
